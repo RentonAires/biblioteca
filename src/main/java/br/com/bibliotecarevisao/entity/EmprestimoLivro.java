@@ -8,6 +8,7 @@ import java.util.Date;
 @Data
 @Entity
 public class EmprestimoLivro {
+
     @Id
     @Column(name = "emprestimo_livro_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,5 @@ public class EmprestimoLivro {
     private Date dataPrevista;
 
     private Date dataDevolucao;
-
 
 }
