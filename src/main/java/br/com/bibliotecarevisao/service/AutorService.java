@@ -39,7 +39,7 @@ public class AutorService {
 
         //verificando se o sobrenome estar nulo ou vazio
         if (autor.getSobrenome() == null || autor.getSobrenome().isEmpty()){
-            throw new Exception("Sobre nome e obrigatório! ");
+            throw new Exception("Sobre nome é obrigatório! ");
         }
         autor = autorRepository.save(autor);
         return autor;
