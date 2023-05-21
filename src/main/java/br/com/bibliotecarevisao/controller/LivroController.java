@@ -20,6 +20,7 @@ public class LivroController {
         return livroService.listar();
     }
 
+    //salvando livro
     @PostMapping
     public ResponseEntity post(@RequestBody Livro livro) {
         try {
@@ -28,4 +29,35 @@ public class LivroController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    //listando livro por id
+    @GetMapping("{id}")
+    public ResponseEntity getId(@PathVariable Long id){
+        try {
+            return ResponseEntity.ok(livroService.listarPorId(id));
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+    //editando livro
+    @PutMapping("{id}")
+    public ResponseEntity put(@PathVariable Long id, @RequestBody Livro livro){
+        try {
+            livro.setId(null);
+            return ResponseEntity.ok(livroService.salvar(livro));
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    //deletando livro
+    @DeleteMapping("{id}")
+    public ResponseEntity delete(@PathVariable Long id){
+        try {
+            return ResponseEntity.ok(livroService.deletar(id));
+        }catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }
