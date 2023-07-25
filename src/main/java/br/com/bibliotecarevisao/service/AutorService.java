@@ -56,13 +56,13 @@ public class AutorService {
     }
 
     //deletar
-    public boolean deletar(Long id) throws Exception{
+    public String deletar(Long id) throws Exception{
         Autor autor = listarPorId(id);
         try {
             autorRepository.delete(autor);
         }catch (Exception e){
-            return false;
+            throw new Exception("Autor não encontrado!");
         }
-        return true;
+        return "Autor cadastrado com sucesso!";
     }
 }
