@@ -12,7 +12,18 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
 
+    //listarUsuario
     public List<Usuario> listarUsuario(){
         return this.usuarioRepository.findAll();
     }
+
+    //salvarUsuario
+    public Usuario salvarUsuario(Usuario usuario){
+        return this.usuarioRepository.save(usuario);
+    }
+    //ListarUsusarioPorId
+
+    //EdiatrUsuario
+
+    //deletarUsuario
 }
